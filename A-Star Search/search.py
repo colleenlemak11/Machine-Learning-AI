@@ -11,7 +11,8 @@ from graph import *
    
 def print_solution(text, search):
     # prints the search path and the cost
-        
+
+    
 if __name__ == '__main__':
 
     # Graph for uninformed search: BFS, DFS, UCS
@@ -39,7 +40,7 @@ if __name__ == '__main__':
    
     g2 = Graph()
 
-    g2.set_vertex('S', [['A',1], ['B',5], ['C',8]], [8])
+    g2.set_vertex('S', [['A',1], ['B',5], ['C',8]], [8]) # 8 is heuristic value
     g2.set_vertex('A', [['D',3], ['E',7], ['G',9]], [8])
     g2.set_vertex('B', [['G',4]], [4])
     g2.set_vertex('C', [['G',5]], [3])

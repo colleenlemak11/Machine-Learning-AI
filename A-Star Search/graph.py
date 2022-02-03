@@ -69,11 +69,45 @@ class Graph:
 
     # search algorithms: Breadth-first search (BFS), Depth-first search (DFS), A* search
 
+    # BFS: checks and appends the starting node to the visited list and queues them
     def bfs(self, initial, goal):
-        # bfs
+        explored = List()
+
+        # bfs uses a queue as frontier
+
+        frontier = Queue()
+        frontier.add(Node(initial))
+
+        while frontier:
+            node = frontier.remove()
+
+            if not explored.contains(node.vertex):
+                explored.add(node)
+            
+            # if the goal state is found, return the solution to the search
+
+            if node.vertex == goal:
+                # add successor nodes to the frontier
+                print("")
+            else:
+                successors = self._graph[node.vertex]
+
+                for successor in successors:
+                    successor_node = successor[0]
+                    successor_cost = successor[1]
+
+                    if not frontier.contains(successor_node):
+                        frontier.add(Node(successor_node, node.vertex, successor_cost))
+
 
     def dfs(self, initial, goal):
-        # dfs
+        visited = []
+        
+        if self not in visited:
+            print(self)
+            visited.append(self)
+            for neighbor in visited[self]:
+                dfs(visited, self, neighbor)
 
     def astar(self, initial, goal, heuristic=astar_search):      
         # a* search
