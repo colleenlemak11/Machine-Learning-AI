@@ -4,7 +4,6 @@ Course: CSCI 4740
 Professor: Jorge Martinez Ladron de Guevara
 File Description: This file uses search functions to graph the results.
 '''
-
 from nodelist import * 
 from searchpath import *
 
@@ -87,9 +86,18 @@ class Graph:
             # if the goal state is found, return the solution to the search
 
             if node.vertex == goal:
-                # add successor nodes to the frontier
-                print("")
+                path = Stack()
+
+                while node.parent is not None:
+                    path.add(node)
+                    node = explored.get(node.parent)
+
+                path.add(Node(initial))
+
+                return SearchPath(path, explored.elements())
+
             else:
+                # add successor nodes to the frontier
                 successors = self._graph[node.vertex]
 
                 for successor in successors:
@@ -101,13 +109,9 @@ class Graph:
 
 
     def dfs(self, initial, goal):
-        visited = []
-        
-        if self not in visited:
-            print(self)
-            visited.append(self)
-            for neighbor in visited[self]:
-                dfs(visited, self, neighbor)
+        # dfs
+        pass
 
     def astar(self, initial, goal, heuristic=astar_search):      
         # a* search
+        pass

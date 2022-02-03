@@ -66,21 +66,31 @@ class Queue(List):
 class Stack(List): 
     def remove(self):
         # removes the last element of the list
+        pass
+        # if not self.empty():
+        #     return self.nodes.pop(-1)
+
+        # return None
 
 # PriorityQueue is a subclass of List
 
 class PriorityQueue(List):
     def __swap(self, p, q):
         # swaps the value of nodes at positions p and q
+        pass
 
     def __shiftUp(self, parent, child):
         # swaps the child and the parent node while the parent's heuristic is greater that the child's heuristic
+        pass
 
     def __shiftDown(self, parent):
         # swaps the parent with minimum of its left and right child
+        pass
         
     def add(self, node): 
         # adds a new node 
+        pass
 
     def remove(self):
         # removes the node with the minimum key (heuristic)
+        pass

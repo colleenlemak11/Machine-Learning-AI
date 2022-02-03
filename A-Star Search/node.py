@@ -10,7 +10,6 @@ When searching, we need to store a node's...
 3. parent
 4. heuristic g(n), h(n), g(n) + h(n)
 '''
-
 # Node objects store data used when exploring nodes
 
 class Node:
