@@ -10,6 +10,7 @@ When searching, we need to store a node's...
 3. parent
 4. heuristic g(n), h(n), g(n) + h(n)
 '''
+
 # Node objects store data used when exploring nodes
 
 class Node:
@@ -18,18 +19,18 @@ class Node:
         self.parent = parent
         self.cost = cost
         self.heuristic = heuristic
-    
+
     def __str__(self):
         return "'" + self.vertex + "'" if self.parent == None else "'" + self.vertex + "','" + self.parent + "',cost=" + str(self.cost) + ",heuristic=" + str(self.heuristic)
+
+    # @property
+    # def parent(self):
+    #     return self.parent
     
-    @property
-    def parent(self):
-        return self.parent
+    # @property
+    # def cost(self):
+    #     return self.cost
     
-    @property
-    def cost(self):
-        return self.cost
-    
-    @property
-    def heuristic(self):
-        return self.heuristic
+    # @property
+    # def heuristic(self):
+    #     return self.heuristic

@@ -4,6 +4,7 @@ Course: CSCI 4740
 Professor: Jorge Martinez Ladron de Guevara
 File Description: This file uses search functions to graph the results.
 '''
+
 from nodelist import * 
 from searchpath import *
 

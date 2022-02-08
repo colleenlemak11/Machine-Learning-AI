@@ -4,6 +4,7 @@ Course: CSCI 4740
 Professor: Jorge Martinez Ladron de Guevara
 File Description: SearchPath objects are used to return the solution of a search problem.
 '''
+
 # SearchPath objects are used to return the solution of a search problem 
 
 class SearchPath:

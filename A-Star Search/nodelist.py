@@ -4,6 +4,7 @@ Course: CSCI 4740
 Professor: Jorge Martinez Ladron de Guevara
 File Description: Implements and defines a List superclass with Queue and PriorityQueue subclasses.
 '''
+
 from node import * 
 
 #
