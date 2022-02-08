@@ -4,6 +4,7 @@ Course: CSCI 4740
 Professor: Jorge Martinez Ladron de Guevara
 File Description: SearchPath objects are used to return the solution of a search problem.
 '''
+# SearchPath objects are used to return the solution of a search problem 
 
 class SearchPath:
     def __init__(self, path, explored_nodes):
@@ -17,3 +18,5 @@ class SearchPath:
     @property
     def explored_nodes(self):
         return self._explored_nodes
+    
+    

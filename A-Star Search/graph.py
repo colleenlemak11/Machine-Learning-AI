@@ -68,67 +68,134 @@ class Graph:
 
     # search algorithms: Breadth-first search (BFS), Depth-first search (DFS), A* search
 
-    # BFS: checks and appends the starting node to the visited list and queues them
     def bfs(self, initial, goal):
         explored = List()
 
         # bfs uses a queue as frontier
-
+        
         frontier = Queue()
         frontier.add(Node(initial))
 
         while frontier:
             node = frontier.remove()
-
+            
             if not explored.contains(node.vertex):
                 explored.add(node)
-                print(node)
-            
-            # if the goal state is found, return the solution to the search
 
-            if node.vertex == goal:
-                path = Stack()
+                # if the goal state is found, return the solution to the search problem
+                
+                if node.vertex == goal:
+                    path = Stack()
+                    
+                    while node.parent is not None:
+                        path.add(node)
+                        
+                        node = explored.get(node.parent)
 
-                while node.parent is not None:
-                    path.add(node)
-                    node = explored.get(node.parent)
+                    path.add(Node(initial))
 
-                path.add(Node(initial))
+                    return SearchPath(path, explored.elements())
+                
+                # add successor nodes to the frontier   
+                
+                successors = self._graph[node.vertex]
 
-                return SearchPath(path, explored.elements())
+                for successor in successors:
+                    successor_node = successor[0]
+                    successor_cost = successor[1]
+                    
+                    if not frontier.contains(successor_node):
+                        frontier.add(Node(successor_node, node.vertex, successor_cost))
+                                    
+        return None
 
-            else:
+    def dfs(self, initial, goal):
+        explored = List()
+
+        # dfs uses a stack as frontier
+        
+        frontier = Stack()
+        frontier.add(Node(initial))
+
+        while frontier:
+            node = frontier.remove()
+                    
+            if not explored.contains(node.vertex):
+                explored.add(node)
+
+                # if the goal state is found, return the solution to the search problem
+                
+                if node.vertex == goal:
+                    path = Stack()
+                    
+                    while node.parent is not None:
+                        path.add(node)
+                        
+                        node = explored.get(node.parent)
+
+                    path.add(Node(initial))
+
+                    return SearchPath(path, explored.elements())
+
                 # add successor nodes to the frontier
+                
+                successors = reversed(self._graph[node.vertex])
+     
+                for successor in successors:
+                    successor_node = successor[0]
+                    successor_cost = successor[1]
+                    
+                    if not frontier.contains(successor_node):
+                        frontier.add(Node(successor_node, node.vertex, successor_cost))
+                                    
+        return None	
+
+    # A* search combines actual costs and a heuristic function to to choose the next node to explore
+
+    def astar(self, initial, goal, heuristic=astar_search):
+        explored = List()
+        
+        # a* search uses a priority queue as frontier
+        
+        frontier = PriorityQueue()
+        frontier.add(Node(initial))
+
+        while frontier:        
+            node = frontier.remove()
+            
+            if not explored.contains(node.vertex):
+                explored.add(node)
+
+                # if the goal state is found, return the solution to the search problem
+                
+                if node.vertex == goal:                                    
+                    path = Stack()
+                    
+                    while node.parent is not None:
+                        path.add(node)
+                        node = explored.get(node.parent)
+
+                    path.add(Node(initial))
+
+                    return SearchPath(path, explored.elements())
+                
+                # add successor nodes to the frontier
+                
                 successors = self._graph[node.vertex]
 
                 for successor in successors:
                     successor_node = successor[0]
                     successor_cost = successor[1]
 
-                    if not frontier.contains(successor_node):
-                        frontier.add(Node(successor_node, node.vertex, successor_cost))
-                        
-        print("BFS returns None")
+                    # calculate g(n) and h(n)
+                    
+                    gn = int(node.cost + successor_cost)
+                    hn = int(self._heuristic[successor_node][0])
+                    
+                    fn = heuristic(gn, hn)
+                    
+                    # the frontier is a priority queue with key fn
+                    
+                    frontier.add(Node(successor_node, node.vertex, successor_cost, fn))
+                                    
         return None
-        
-        # # prints the search path and the cost
-        # s = ""
-        # cost = 0
-
-        # while not search.path.empty():
-        #     node = search.path.remove()
-
-        #     s = s + node.vertex + "-"
-        #     cost = cost + node.cost
-        
-        # print(text + " " + s[:-1] + " with cost " + str(cost) + " after exploring " + str(search.explored_nodes) + " nodes.")
-
-
-
-    # def dfs(self, initial, goal):
-    #     # dfs
-    #     pass
-
-    # def astar(self, initial, goal, heuristic=astar_search):      
-    #     # a* search
-    #     pass
