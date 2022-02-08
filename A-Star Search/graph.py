@@ -82,6 +82,7 @@ class Graph:
 
             if not explored.contains(node.vertex):
                 explored.add(node)
+                print(node)
             
             # if the goal state is found, return the solution to the search
 
@@ -106,12 +107,28 @@ class Graph:
 
                     if not frontier.contains(successor_node):
                         frontier.add(Node(successor_node, node.vertex, successor_cost))
+                        
+        print("BFS returns None")
+        return None
+        
+        # # prints the search path and the cost
+        # s = ""
+        # cost = 0
+
+        # while not search.path.empty():
+        #     node = search.path.remove()
+
+        #     s = s + node.vertex + "-"
+        #     cost = cost + node.cost
+        
+        # print(text + " " + s[:-1] + " with cost " + str(cost) + " after exploring " + str(search.explored_nodes) + " nodes.")
 
 
-    def dfs(self, initial, goal):
-        # dfs
-        pass
 
-    def astar(self, initial, goal, heuristic=astar_search):      
-        # a* search
-        pass
+    # def dfs(self, initial, goal):
+    #     # dfs
+    #     pass
+
+    # def astar(self, initial, goal, heuristic=astar_search):      
+    #     # a* search
+    #     pass

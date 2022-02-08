@@ -16,15 +16,16 @@ def print_solution(text, search):
 
     while not search.path.empty():
         node = search.path.remove()
-
-        s = s + node.vertex + "-"
-        cost = cost + node.cost
+        print(node)
+        # s = s + node.vertex + "-"
+        # cost = cost + node.cost
     
     print(text + " " + s[:-1] + " with cost " + str(cost) + " after exploring " + str(search.explored_nodes) + " nodes.")
 
         
 if __name__ == '__main__':
-
+    node = Node('1', 'A', 0)
+    print(node)
     # Graph for uninformed search: BFS, DFS, UCS
     
     g1 = Graph()

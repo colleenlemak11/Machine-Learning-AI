@@ -14,10 +14,11 @@ When searching, we need to store a node's...
 
 class Node:
     def __init__(self, vertex, parent=None, cost=0, heuristic=0):
-        self.vertex = vertex
+        self._vertex = vertex
         self.parent = parent
         self.cost = cost
         self.heuristic = heuristic
 
     def __str__(self):
         return "'" + self.vertex + "'" if self.parent == None else "'" + self.vertex + "','" + self.parent + "',cost=" + str(self.cost) + ",heuristic=" + str(self.heuristic)
+    
