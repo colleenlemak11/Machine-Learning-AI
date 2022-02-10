@@ -1,0 +1,7 @@
+A min heap is a complete binary tree
+- Partially ordered
+- Value of the root node is the minimum, and children are less than values of the children
+
+Node at position i has its left child at 2*i+1 and its right child at 2*i+2
+
+The parent of the node at position i is (i-1)/2
