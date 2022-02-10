@@ -1,3 +1,9 @@
+'''
+Name: Colleen Lemak
+Professor: Jorge MLG
+Class: CSCI 4740
+Date: 8 Febrary 2022
+'''
 # PointPublic class declares public attributes x and y
 
 class PointPublic:
