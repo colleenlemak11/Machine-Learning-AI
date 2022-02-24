@@ -4,6 +4,7 @@ Class: CSCI 4740
 Professor: Jorge Martinez
 Date: 17 February 2022
 '''
+
 import math
 
 def minimax(depth, node, maximize, scores, tree_depth, verbose=False):        
