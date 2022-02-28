@@ -31,6 +31,9 @@ if __name__ == '__main__':
     g1 = Graph()
 
     # map from Metro to San Ignacio
+    print("Map Problem")
+    print()
+    
     g1.set_vertex('A', [['B',18]])
     g1.set_vertex('B', [['C',18], ['D',18]])
     g1.set_vertex('C', [['E',72]])
@@ -55,14 +58,36 @@ if __name__ == '__main__':
     print (g1)
 
     # print ("Uninformed search \n")
-    # print_solution ("Breadth-first search", g1.bfs('A', 'I'))
-    # print_solution ("Depth-first search  ", g1.dfs('A', 'I'))
-    print_solution ("A* search f(n)=g(n) ", g1.astar('A', 'I', uniform_cost_search))
+    # print_solution ("Breadth-first search", g1.bfs('S', 'G'))
+    # print_solution ("Depth-first search  ", g1.dfs('S', 'G'))
+    # print_solution ("A* search f(n)=g(n) ", g1.astar('S', 'G', uniform_cost_search))
+    
+    print_solution ("A* search f(n)=g(n)+h(n) ", g1.astar('A', 'I', astar_search))
         
     # Graph for informed search: UCS, Greedy Best-first search, A* search (page 112)
    
-    # g2 = Graph()
+   
+   
+    g2 = Graph()
 
+    # maze problem
+    print()
+    print()
+    print("Maze Problem")
+    print()
+    g2.set_vertex('A', [['B',5], ['C',5], ['D',5]])
+    g2.set_vertex('B', [['A',5]])
+    g2.set_vertex('C', [['P',5]])
+    g2.set_vertex('D', [['E',5], ['F',5]])
+    g2.set_vertex('E', [['G',5], ['H',5]])
+    g2.set_vertex('G', [['E',5]])
+    g2.set_vertex('H', [['E',5]])
+    g2.set_vertex('F', [['D',5]])
+    g2.set_vertex('D', [['A',5]])
+    g2.set_vertex('P', [])
+    
+    
+    
     # g2.set_vertex('S', [['A',1], ['B',5], ['C',8]], [8])
     # g2.set_vertex('A', [['D',3], ['E',7], ['G',9]], [8])
     # g2.set_vertex('B', [['G',4]], [4])
@@ -71,13 +96,15 @@ if __name__ == '__main__':
     # g2.set_vertex('E', [], [999])
     # g2.set_vertex('G', [], [0])
 
-    # print(g2)
+    print(g2)
 
     # print ("Informed search \n")
     # print_solution("A* search default f(n)   ", g2.astar('S', 'G'))
     # print_solution("A* search f(n)=g(n)+h(n) ", g2.astar('S', 'G', astar_search))
     # print_solution("A* search f(n)=g(n)      ", g2.astar('S', 'G', uniform_cost_search))
     # print_solution("A* search f(n)=h(n)      ", g2.astar('S', 'G', greedy_search))
+    
+    print_solution("A* search f(n)=g(n)+h(n) ", g2.astar('A', 'P', astar_search))
 
     # # Graph in A* Applications (page 26)
     
