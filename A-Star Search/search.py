@@ -63,6 +63,8 @@ if __name__ == '__main__':
     # print_solution ("A* search f(n)=g(n) ", g1.astar('S', 'G', uniform_cost_search))
     
     print_solution ("A* search f(n)=g(n)+h(n) ", g1.astar('A', 'I', astar_search))
+    print_solution("A* search f(n)=h(n)      ", g1.astar('A', 'I', greedy_search))
+    
         
     # Graph for informed search: UCS, Greedy Best-first search, A* search (page 112)
    
@@ -105,6 +107,7 @@ if __name__ == '__main__':
     # print_solution("A* search f(n)=h(n)      ", g2.astar('S', 'G', greedy_search))
     
     print_solution("A* search f(n)=g(n)+h(n) ", g2.astar('A', 'P', astar_search))
+    print_solution("A* search f(n)=h(n)      ", g2.astar('A', 'P', greedy_search))
 
     # # Graph in A* Applications (page 26)
     
