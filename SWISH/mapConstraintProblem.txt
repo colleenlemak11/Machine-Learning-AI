@@ -1,0 +1,11 @@
+/* Contraint Satisfaction Problem
+ * \= is not equal
+*/
+color(red).
+color(green).
+color(blue).
+
+solve(WA,NT,SA,NSW,V,Q) :-
+    color(WA), color(NT), color(SA), color(NSW), color(V), color(Q),
+    WA \= NT, WA \= SA, NT \= SA, NT\= Q, SA \= Q,
+    SA \= NSW, SA \= V, NSW \= V, NSW \= Q.

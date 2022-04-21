@@ -1,0 +1,26 @@
+/* Logic programming!
+ *   -> facts, rules, queries 
+*/
+
+female(jane).
+female(anne).
+
+male(john).
+male(peter).
+
+eats(jane, salad).
+eats(jane, pizza).
+eats(john, pizza).
+eats(anne, pizza).
+eats(peter, pizza).
+
+drinks(peter, beer).
+drinks(jane, wine).
+drinks(john, beer).
+
+likes(jane, X) :- male(X), drinks(X, beer), eats(X, pizza).
+likes(john, X) :- female(X), drinks(X, wine), (   eats(X, salad), ! ; eats(X, pizza)  ).
+likes(peter, jane).
+
+loves(X, Y) :- likes(X, Y), likes(Y, X).
+

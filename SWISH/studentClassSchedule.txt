@@ -1,0 +1,17 @@
+/* Contraint Satisfaction Problems
+ * Courses: A, B, C, D, E
+ * One exam per day per student
+ * student 1 takes A C D
+ * student 2 takes B C E
+ * student 3 takes A C E
+ * make these courses not overlap for test days
+*/
+
+day(monday).
+day(tuesday).
+day(wednesday).
+
+solve(A, B, C, D, E) :-
+    day(A), day(B), day(C), day(D), day(E), A \= wednesday,
+    B \= monday, C \= wednesday,
+    A \= C, A \= D, C \= D, B \= C, B \= C, B \= E, C \= E, A \= E.

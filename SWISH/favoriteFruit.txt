@@ -1,0 +1,50 @@
+/*
+ * Colleen Lemak
+ * CSCI 4740
+ * 24 March 2022
+*/
+
+person(piper).
+person(johnny).
+person(lilah).
+person(marcus).
+
+dessert(cherry, cheesecake).
+dessert(mandarin, ice-cream).
+dessert(banana, candy).
+dessert(apple, pie).
+dessert(blueberry, gummy).
+dessert(grape, lolipop).
+
+fruit(cherry, red, sweet).
+fruit(mandarin, orange, sweet).
+fruit(banana, yellow, tart).
+fruit(apple, green, tart).
+fruit(blueberry, blue, sour).
+fruit(grape, purple, sour).
+
+favoriteFruit(piper,X) :- fruit(X, red, sweet), dessert(X, cheesecake).
+favoriteFruit(johnny,X) :- fruit(X, orange, sweet), dessert(X, ice-cream).
+favoriteFruit(lilah,X) :- fruit(X, yellow, tart), dessert(X, candy).
+favoriteFruit(marcus,X) :- fruit(X, purple, sour), dessert(X, lolipop).
+
+/*
+ * This program calculates the favorite fruit of Piper, Johnny, Lilah, and Marcus using what 
+ * color, taste, and desert they enjoy most.
+ *  
+ * cherry = red 
+ * mandarin = orange
+ * banana = yellow
+ * apple = green
+ * blueberry = blue
+ * grape = purple
+ * 
+ * Example program command: favoriteFruit(marcus, X).
+ * 
+fruit(X, 'red') :- write('Testing red '), nl, X='cherry'.
+fruit(X, 'orange') :- write('Testing orange '), nl, X='mandarin'.                                                     
+fruit(X, 'yellow') :- write('Testing yellow '), nl, X='banana'.
+fruit(X, 'green') :- write('Testing green '), nl, X='apple'.                                                   
+fruit(X, 'blue') :- write('Testing blue '), nl, X='blueberry'.
+fruit(X, 'purple') :- write('Testing purple '), nl, X='grape'.
+*/

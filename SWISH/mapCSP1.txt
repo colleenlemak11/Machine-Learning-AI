@@ -1,0 +1,14 @@
+/* 
+ * Colleen Lemak
+ * This program maps out states in the United States. Given these states are next to each other, they
+ * cannot receive the same color for the map, making this a constraint satisfaction problem.
+*/
+
+color(purple).
+color(green).
+color(blue).
+
+solve(CA,OR,WA,NV,ID, AZ) :-
+    color(CA), color(OR), color(WA), color(NV), color(ID), color(AZ),
+    CA \= OR, OR \= WA, WA \= ID, OR \= ID, 
+    CA \= NV, CA \= AZ, AZ \= NV.        
