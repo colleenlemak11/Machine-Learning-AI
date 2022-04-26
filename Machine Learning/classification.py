@@ -34,3 +34,50 @@ with open("heart disease.csv") as input_data:
             "evidence": [float(cell) for cell in row[:13]],
             "label": row[13]
         })
+     
+# run models   
+for index in range(len(classification_models)):
+    # separate input data into training and testing sets: 40 to 60% for training
+    
+    train_data_size = int(TRAINING_SET_SIZE * len(data))
+    
+    # mix input data randomly
+    
+    random.shuffle(data)
+    
+    # testing and training data sets
+    
+    testing = data[:train_data_size]
+    training = data[train_data_size:]
+    
+    # train model using the training set
+    
+    x_training = [row["evidence"] for row in training]
+    y_training = [row["label"] for row in training]
+    
+    model = classification_models[index]
+    model.fit(x_training, y_training)
+    
+    # make predicitions using the testing set
+    
+    x_testing = [row["evidence"] for row in testing]
+    y_testing = [row["label"] for row in testing]
+    
+    predictions = model.predict(x_testing)
+    
+    # evaluate the model performance
+    
+    correct_predictions = (y_testing == predictions).sum()
+    incorrect_predictions = (y_testing != predictions).sum()
+    total_predictions = len(predictions)
+    
+    # prediction performance
+    
+    print("")
+    print(models[index], "\n")
+    
+    print("Correct  ", correct_predictions)
+    print("Incorrect  ", incorrect_predictions)
+    print("Accuracy  ", (100 * correct_predictions / total_predictions))
+    
+    
