@@ -57,6 +57,9 @@ print(total_loans)
 # sns.stripplot(x="Age",y="Income",hue="Personal Loan", data=bank_data)
 # plt.show()
 
-sns.stripplot(x="Education",y="Income",hue="Personal Loan", data=bank_data)
+# sns.stripplot(x="Education",y="Income",hue="Personal Loan", data=bank_data)
+# plt.show()
+
+sns.boxplot(x="Education",y="Income",hue="Personal Loan", data=bank_data)
 plt.show()
 
