@@ -44,4 +44,19 @@ total_loans.columns = ["Labels","Personal Loan"]
 print("\n Personal loans distribution \n")
 print(total_loans)
 
+
+
+
+# Graphs!
+
 # data analysis: which customers are more likely to take out a loan
+
+# sns.stripplot(x="Education",y="CC Average",hue="Personal Loan", data=bank_data)
+# plt.show()
+
+# sns.stripplot(x="Age",y="Income",hue="Personal Loan", data=bank_data)
+# plt.show()
+
+sns.stripplot(x="Education",y="Income",hue="Personal Loan", data=bank_data)
+plt.show()
+
